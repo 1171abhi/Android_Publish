@@ -4,45 +4,256 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unit 1 - Kotlin</title>
+    <title>Learn Kotlin Programming</title>
     <link rel="shortcut icon" href="../../image/android.svg" type="image/x-icon">
     <link rel="stylesheet" href="../../css/style.css">
+    <style>
+        :root {
+            --main-bg: #f8f8f8;
+            --main-text: #333;
+            --header-bg: #4fa3a1; /* Soft Teal */
+            --nav-bg: #d8e3e7; /* Light Gray-Blue */
+            --accent-color: #007bff; /* Accent Color: Blue */
+            --dark-main-bg: #1a1a1a; /* Dark Background Color (change this) */
+            --dark-main-text: #fff;
+            --dark-header-bg: #002633; /* Dark Teal */
+            --dark-nav-bg: #00394d; /* Dark Gray-Blue */
+            --dark-accent-color: #66a5ad; /* Darker Teal */
+            --transition-duration: 0.3s;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--main-bg);
+            color: var(--main-text);
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+        }
+
+        header img {
+            max-height: 50px;
+        }
+
+        nav {
+            background-color: var(--nav-bg);
+            color: #333;
+            padding: 10px;
+            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+        }
+
+        nav a {
+            color: #333;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        .theme-toggle {
+            cursor: pointer;
+            padding: 5px;
+            border: none;
+            background: none;
+            font-size: 16px;
+            color: #333;
+            transition: color var(--transition-duration) ease;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 28px;
+        }
+
+        h2 {
+            color: var(--header-bg);
+            margin-top: 20px;
+        }
+
+        h3 {
+            color: #555;
+        }
+
+        pre {
+            background-color: #1a1a1a;
+            padding: 15px;
+            border-radius: 5px;
+            overflow: auto;
+            margin-bottom: 20px;
+            color: var(--dark-main-text); /* Ensure code color is visible on dark background */
+        }
+
+        section {
+            margin: 20px;
+        }
+
+        article {
+            margin-bottom: 30px;
+        }
+
+        ol {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: var(--nav-bg);
+            color: #333;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+
+        ul {
+            padding: 0;
+            list-style: none;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        /* Dark Theme Styles */
+
+        body.dark-theme {
+            background-color: var(--dark-main-bg);
+            color: var(--dark-main-text);
+        }
+
+        header.dark-theme {
+            background-color: var(--dark-header-bg);
+        }
+
+        nav.dark-theme {
+            background-color: var(--dark-nav-bg);
+        }
+
+        .theme-toggle.dark-theme {
+            color: var(--dark-main-text);
+        }
+
+        body.dark-theme pre {
+            color: var(--dark-main-text); /* Ensure code color is visible on dark background */
+        }
+
+        .code-container {
+            position: relative;
+        }
+
+        .copy-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 10px;
+            font-size: 14px;
+            background-color: var(--accent-color);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Output functions</h2>
+    <header>
+        <img src="../../image/android.svg" alt="Logo">
+        <h1>Learn Kotlin Programming</h1>
+        <img src="../../image/android.svg" alt="Logo">
+    </header>
 
-    <h3>Kotlin Output(Print)</h3>
-    <pre>fun main() {
-        print("Hello World! ")
-        print("I am learning Kotlin. ")
-        print("It is awesome!")
-      }</pre>
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Courses</a>
+        <a href="#">Blog</a>
+        <a href="#">Contact</a>
+        <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
+    </nav>
 
-    <h3>Kotlin Output(Println)</h3>
-    <pre>fun main() {
-        println("Hello World!")
-        println("I am learning Kotlin.")
-        println("It is awesome!")
-      }</pre>
+    <section>
+        <h2>Unit 1 - Kotlin</h2>
 
-    <h2>Comments</h2>
-    <h3>single line comment</h3>
-    <pre>       // This is single line comment
-        println("Hello World")</pre>
+        <article>
+            <h3>Output functions</h3>
+            <p>Understanding how to output messages using Kotlin print and println functions.</p>
 
-    <h3>Multi-line comment</h3>
-    <pre>       /* The code below will print the words Hello World
-        to the screen, and it is amazing */
-        println("Hello World")  </pre>
+            <div class="code-container">
+                <button class="copy-button" onclick="copyCode('outputCode')">Copy</button>
+                <pre id="outputCode">fun main() {
+    print("Hello World! ")
+    print("I am learning Kotlin. ")
+    print("It is awesome!")
+}</pre>
+            </div>
+        </article>
 
+        <article>
+            <h3>Comments</h3>
+            <p>Learn the importance of commenting your code in Kotlin.</p>
 
-    <ol>
+            <div class="code-container">
+                <button class="copy-button" onclick="copyCode('commentCode')">Copy</button>
+                <h4>Single-line comment</h4>
+                <pre id="commentCode">// This is a single-line comment
+println("Hello World")</pre>
 
-        <li>Variables</li>
-        <li>functions</li>
-    </ol>
+                <h4>Multi-line comment</h4>
+                <pre id="commentCodeMulti">/* The code below will print the words Hello World
+to the screen, and it is amazing */
+println("Hello World")</pre>
+            </div>
+        </article>
+    </section>
 
+    <section>
+        <h2>Topics to Cover</h2>
+
+        <ol>
+            <li>Variables</li>
+            <li>Functions</li>
+            <li>Control Flow</li>
+            <li>Data Types</li>
+            <!-- Add more topics as needed -->
+        </ol>
+    </section>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle('dark-theme');
+            document.querySelectorAll('.theme-toggle').forEach(btn => btn.classList.toggle('dark-theme'));
+        }
+
+        function copyCode(id) {
+            const codeElement = document.getElementById(id);
+            const textarea = document.createElement('textarea');
+            textarea.value = codeElement.textContent;
+            document.body.appendChild(textarea);
+            textarea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textarea);
+        }
+    </script>
 </body>
 
 </html>
