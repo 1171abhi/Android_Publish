@@ -29,6 +29,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            display: flex;
             transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
         }
 
@@ -40,11 +41,54 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
             transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
         }
 
         header img {
             max-height: 50px;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            margin-left: 10px;
+        }
+
+        .left-menu {
+            background-color: var(--nav-bg);
+            color: #333;
+            padding: 10px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-start;
+            width: 200px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+            margin-top: 70px; /* Adjusted to prevent overlap with header */
+        }
+
+        .left-menu h3,
+        .left-menu ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+
+        .left-menu a {
+            margin-bottom: 10px;
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            margin-left: 220px; /* Adjusted to accommodate the left menu width */
+            padding: 20px;
         }
 
         nav {
@@ -56,6 +100,10 @@
             justify-content: space-between;
             align-items: center;
             transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+            position: fixed;
+            top: 50px; /* Adjusted to position below the fixed header */
+            left: 220px; /* Adjusted to match the left menu width */
+            width: calc(100% - 220px); /* Adjusted to match the remaining width */
         }
 
         nav a {
@@ -179,7 +227,7 @@
 <body>
     <header>
         <img src="../../image/android.svg" alt="Logo">
-        <h1>Learn Kotlin Programming</h1>
+        <h1 class="logo-text">Learn Kotlin Programming</h1>
         <img src="../../image/android.svg" alt="Logo">
     </header>
 
@@ -191,52 +239,63 @@
         <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
     </nav>
 
-    <section>
-        <h2>Unit 1 - Kotlin</h2>
+    <div class="left-menu">
+        <h3>Unit 1 - Kotlin</h3>
+        <ul>
+            <li>Output functions</li>
+            <li>Comments</li>
+        </ul>
 
-        <article>
-            <h3>Output functions</h3>
-            <p>Understanding how to output messages using Kotlin print and println functions.</p>
-
-            <div class="code-container">
-                <button class="copy-button" onclick="copyCode('outputCode')">Copy</button>
-                <pre id="outputCode">fun main() {
-    print("Hello World! ")
-    print("I am learning Kotlin. ")
-    print("It is awesome!")
-}</pre>
-            </div>
-        </article>
-
-        <article>
-            <h3>Comments</h3>
-            <p>Learn the importance of commenting your code in Kotlin.</p>
-
-            <div class="code-container">
-                <button class="copy-button" onclick="copyCode('commentCode')">Copy</button>
-                <h4>Single-line comment</h4>
-                <pre id="commentCode">// This is a single-line comment
-println("Hello World")</pre>
-
-                <h4>Multi-line comment</h4>
-                <pre id="commentCodeMulti">/* The code below will print the words Hello World
-to the screen, and it is amazing */
-println("Hello World")</pre>
-            </div>
-        </article>
-    </section>
-
-    <section>
-        <h2>Topics to Cover</h2>
-
-        <ol>
+        <h3>Topics to Cover</h3>
+        <ul>
             <li>Variables</li>
             <li>Functions</li>
             <li>Control Flow</li>
             <li>Data Types</li>
-            <!-- Add more topics as needed -->
-        </ol>
-    </section>
+        </ul>
+
+        <h3>New Topics</h3>
+        <ul>
+            <li>Topic 1: Introduction to Kotlin</li>
+            <li>Topic 2: Kotlin Syntax</li>
+            <li>Topic 3: Object-Oriented Programming in Kotlin</li>
+        </ul>
+    </div>
+
+    <main>
+        <section>
+            <article>
+                <h3>Output functions</h3>
+                <p>Understanding how to output messages using Kotlin print and println functions.</p>
+
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyCode('outputCode')">Copy</button>
+                    <pre id="outputCode">fun main() {
+    print("Hello World! ")
+    print("I am learning Kotlin. ")
+    print("It is awesome!")
+}</pre>
+                </div>
+            </article>
+
+            <article>
+                <h3>Comments</h3>
+                <p>Learn the importance of commenting your code in Kotlin.</p>
+
+                <div class="code-container">
+                    <button class="copy-button" onclick="copyCode('commentCode')">Copy</button>
+                    <h4>Single-line comment</h4>
+                    <pre id="commentCode">// This is a single-line comment
+println("Hello World")</pre>
+
+                    <h4>Multi-line comment</h4>
+                    <pre id="commentCodeMulti">/* The code below will print the words Hello World
+to the screen, and it is amazing */
+println("Hello World")</pre>
+                </div>
+            </article>
+        </section>
+    </main>
 
     <script>
         function toggleTheme() {
