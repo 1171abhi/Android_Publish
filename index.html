@@ -1,224 +1,291 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Learn Kotlin Programming</title>
-    <link rel="shortcut icon" href="./image/android.svg" type="image/x-icon">
-    <link rel="stylesheet" href="./css/style.css">
     <style>
-        :root {
-            --main-bg: #f8f8f8;
-            --main-text: #333;
-            --header-bg: #4fa3a1; /* Soft Teal */
-            --nav-bg: #d8e3e7; /* Light Gray-Blue */
-            --accent-color: #007bff; /* Accent Color: Blue */
-            --dark-main-bg: #333;
-            --dark-main-text: #fff;
-            --dark-header-bg: #002633; /* Dark Teal */
-            --dark-nav-bg: #00394d; /* Dark Gray-Blue */
-            --dark-accent-color: #66a5ad; /* Darker Teal */
-            --transition-duration: 0.3s;
+        /* Reset some default styles */
+        body, h1, h2, h3, p, ul, li {
+            margin: 0;
+            padding: 0;
         }
 
+        /* Apply a box-sizing border-box to all elements */
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Basic styling for the body */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: var(--main-bg);
-            color: var(--main-text);
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+            line-height: 1.6;
         }
 
+        /* Container for centering content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Header styles */
         header {
-            background-color: var(--header-bg);
+            background-color: #003049; /* Updated color code */
             color: #fff;
-            padding: 15px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
+            padding: 10px 0;
         }
 
-        header img {
-            max-height: 50px;
-        }
-
-        nav {
-            background-color: var(--nav-bg);
-            color: #333;
-            padding: 10px;
-            text-align: center;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: background-color var(--transition-duration) ease, color var(--transition-duration) ease;
-        }
-
-        nav a {
-            color: #333;
-            text-decoration: none;
-            margin: 0 15px;
-            font-weight: bold;
-            font-size: 16px;
-        }
-
-        .theme-toggle {
-            cursor: pointer;
-            padding: 5px;
-            border: none;
-            background: none;
-            font-size: 16px;
-            color: #333;
-            transition: color var(--transition-duration) ease;
-        }
-
-        h1 {
-            margin: 0;
-            font-size: 28px;
-        }
-
-        h2 {
-            color: var(--header-bg);
-            margin-top: 20px;
-        }
-
-        h3 {
-            color: #555;
-        }
-
-        pre {
-            background-color: #f5f5f5;
-            padding: 15px;
-            border-radius: 5px;
-            overflow: auto;
-            margin-bottom: 20px;
-        }
-
-        section {
-            margin: 20px;
-        }
-
-        article {
-            margin-bottom: 30px;
-        }
-
-        ol {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        li {
-            background-color: var(--nav-bg);
-            color: #333;
-            padding: 10px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-        }
-
-        ul {
-            padding: 0;
+        header nav ul {
             list-style: none;
         }
 
-        ul li {
-            margin-bottom: 10px;
+        header nav ul li {
+            display: inline-block;
+            margin-right: 20px;
         }
 
-        a {
-            color: var(--accent-color);
+        header nav a {
             text-decoration: none;
+            color: #fff;
         }
 
-        /* Dark Theme Styles */
-        body.dark-theme {
-            background-color: var(--dark-main-bg);
-            color: var(--dark-main-text);
+        /* Hero Section styles */
+        .hero {
+            background-color: #3498db;
+            padding: 50px 0;
+            text-align: center;
         }
 
-        header.dark-theme {
-            background-color: var(--dark-header-bg);
+        .hero h1 {
+            font-size: 2.5em;
+            color: #fff;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
         }
 
-        nav.dark-theme {
-            background-color: var(--dark-nav-bg);
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2980b9;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
         }
 
-        .theme-toggle.dark-theme {
-            color: var(--dark-main-text);
+        /* Features Section styles */
+        .features {
+            padding: 50px 0;
+        }
+
+        .feature {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        /* Courses Section styles */
+        .courses {
+            padding: 50px 0;
+        }
+
+        .course {
+            background-color: #ecf0f1;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .course h3 {
+            color: #2c3e50;
+        }
+
+        .enroll-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #2c3e50;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        /* Testimonials Section styles */
+        .testimonials {
+            padding: 50px 0;
+        }
+
+        .testimonial {
+            background-color: #ecf0f1;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial p {
+            color: #2c3e50;
+        }
+
+        .testimonial cite {
+            display: block;
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #003049; /* Updated color code */
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer nav ul {
+            list-style: none;
+        }
+
+        footer nav ul li {
+            display: inline-block;
+            margin-right: 20px;
+        }
+
+        footer nav a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        /* Social Media Icons styles (customize as needed) */
+        .social-icons {
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin-right: 10px;
+            color: #fff;
+            font-size: 1.5em;
         }
     </style>
+    <title>Coding Education</title>
 </head>
-
 <body>
+    <!-- Header Section -->
     <header>
-        <img src="./image/android.svg" alt="Logo">
-        <h1>Learn Kotlin Programming</h1>
-        <img src="./image/android.svg" alt="Logo">
+        <div class="container">
+            <div class="logo">Your Logo</div>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#">Courses</a>
-        <a href="#">Blog</a>
-        <a href="#">Contact</a>
-        <button class="theme-toggle" onclick="toggleTheme()">Toggle Theme</button>
-    </nav>
-
-    <section>
-        <h2>Unit 1 - Kotlin</h2>
-
-        <article>
-            <h3>Output functions</h3>
-            <p>Understanding how to output messages using Kotlin print and println functions.</p>
-
-            <div class="code-container">
-                <pre>fun main() {
-    print("Hello World! ")
-    print("I am learning Kotlin. ")
-    print("It is awesome!")
-}</pre>
-            </div>
-        </article>
-
-        <article>
-            <h3>Comments</h3>
-            <p>Learn the importance of commenting your code in Kotlin.</p>
-
-            <div class="code-container">
-                <h4>Single-line comment</h4>
-                <pre>// This is a single-line comment
-println("Hello World")</pre>
-
-                <h4>Multi-line comment</h4>
-                <pre>/* The code below will print the words Hello World
-to the screen, and it is amazing */
-println("Hello World")</pre>
-            </div>
-        </article>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 id="changingText"></h1>
+            <a href="#" class="cta-button">Get Started</a>
+        </div>
     </section>
 
-    <section>
-        <h2>Topics to Cover</h2>
-
-        <ol>
-            <li>Variables</li>
-            <li>Functions</li>
-            <li>Control Flow</li>
-            <li>Data Types</li>
-            <!-- Add more topics as needed -->
-        </ol>
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <!-- Feature 1 -->
+            <div class="feature">
+                <h2>Interactive Lessons</h2>
+                <p>Bite-sized lessons with hands-on coding exercises.</p>
+            </div>
+            <!-- Feature 2 (similar structure) -->
+            <!-- Feature 3 (similar structure) -->
+        </div>
     </section>
+
+    <!-- Courses Section -->
+    <section class="courses">
+        <div class="container">
+            <!-- Course 1 -->
+            <div class="course">
+                <h3>Android Course: Jetpack Compose Mastery</h3>
+                <p>The Ultimate Android Development Course from Beginner to Advanced . Unlock the full potential of Android development with our "Jetpack Compose Mastery" course. Whether you're a beginner or an experienced developer, dive into the world of modern Android app creation. Learn the essentials, build real-world projects, and master advanced techniques using Google's Jetpack Compose toolkit. Join us and elevate your Android development skills to new heights! </p>
+                <a href="#" class="enroll-button">Start Learning</a>
+            </div>
+            <!-- Course 2 (similar structure) -->
+            <!-- Course 3 (similar structure) -->
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <!-- Testimonial 1 -->
+            <div class="testimonial">
+                <p>"The courses are fantastic! I learned a lot and enjoyed every moment."</p>
+                <cite>John Doe, Student</cite>
+            </div>
+            <!-- Testimonial 2 (similar structure) -->
+            <!-- Testimonial 3 (similar structure) -->
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Courses</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <!-- Social Media Icons -->
+            <div class="social-icons">
+                <!-- Add your social media icons here -->
+            </div>
+        </div>
+    </footer>
 
     <script>
-        function toggleTheme() {
-            document.body.classList.toggle('dark-theme');
-            document.querySelectorAll('.theme-toggle').forEach(btn => btn.classList.toggle('dark-theme'));
-        }
-    </script>
-</body>
+ const textArray = [
+            "Discover Easy Coding with Us!",
+            "Explore Exciting Coding Challenges!",
+            "Build Real-World Projects with Confidence!"
+        ];
 
+        let currentIndex = 0;
+        const changingText = document.getElementById("changingText");
+
+        function updateText() {
+            let charIndex = 0;
+            const currentText = textArray[currentIndex];
+
+            function typeWriter() {
+                changingText.textContent += currentText[charIndex];
+                charIndex++;
+
+                if (charIndex < currentText.length) {
+                    setTimeout(typeWriter, 100); // Adjust the speed (in milliseconds)
+                } else {
+                    setTimeout(changeText, 2000); // Change text after completion
+                }
+            }
+
+            typeWriter();
+        }
+
+        function changeText() {
+            changingText.innerHTML = '';
+            currentIndex = (currentIndex + 1) % textArray.length;
+            updateText();
+        }
+
+        updateText();
+
+
+        
+    </script>
+
+</body>
 </html>
