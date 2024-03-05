@@ -1,291 +1,209 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Website</title>
     <style>
-        /* Reset some default styles */
-        body, h1, h2, h3, p, ul, li {
-            margin: 0;
-            padding: 0;
+         /* Media Query for small screens */
+    @media only screen and (max-width: 600px) {
+        nav {
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Apply a box-sizing border-box to all elements */
-        * {
-            box-sizing: border-box;
+        .feature-box,
+        .course-box {
+            width: calc(100% - 20px);
+            margin: 10px;
         }
-
-        /* Basic styling for the body */
+    }
         body {
             font-family: 'Arial', sans-serif;
-            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0ec;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+
+            /* background-color: #040f16; */
         }
 
-        /* Container for centering content */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        /* Header styles */
         header {
-            background-color: #003049; /* Updated color code */
-            color: #fff;
-            padding: 10px 0;
-        }
-
-        header nav ul {
-            list-style: none;
-        }
-
-        header nav ul li {
-            display: inline-block;
-            margin-right: 20px;
-        }
-
-        header nav a {
-            text-decoration: none;
-            color: #fff;
-        }
-
-        /* Hero Section styles */
-        .hero {
-            background-color: #3498db;
-            padding: 50px 0;
+            background-color: #333;
+            color: white;
             text-align: center;
+            padding: 1em;
         }
 
-        .hero h1 {
-            font-size: 2.5em;
-            color: #fff;
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .cta-button {
-            display: inline-block;
+        nav {
+            display: flex;
+            justify-content: space-between;
             padding: 10px 20px;
-            background-color: #2980b9;
-            color: #fff;
+            background-color: #444;
+        }
+
+        nav a {
+            color: white;
             text-decoration: none;
-            font-weight: bold;
+            padding: 10px;
             border-radius: 5px;
+            transition: background-color 0.3s;
         }
 
-        /* Features Section styles */
-        .features {
-            padding: 50px 0;
+        nav a:hover {
+            background-color: #555;
         }
 
-        .feature {
-            text-align: center;
-            margin-bottom: 30px;
+        .color-box {
+            background-color: #c1f0c1; /* Light green background color */
+            width: 100%;
+            height: 200px; /* Adjust the height as needed */
         }
 
-        /* Courses Section styles */
-        .courses {
-            padding: 50px 0;
-        }
-
-        .course {
-            background-color: #ecf0f1;
+        section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
             padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .course h3 {
-            color: #2c3e50;
-        }
-
-        .enroll-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #2c3e50;
-            color: #fff;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-        }
-
-        /* Testimonials Section styles */
-        .testimonials {
-            padding: 50px 0;
-        }
-
-        .testimonial {
-            background-color: #ecf0f1;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
-
-        .testimonial p {
-            color: #2c3e50;
-        }
-
-        .testimonial cite {
-            display: block;
-            margin-top: 10px;
-            font-style: italic;
-            color: #555;
-        }
-
-        /* Footer styles */
-        footer {
-            background-color: #003049; /* Updated color code */
-            color: #fff;
-            padding: 20px 0;
             text-align: center;
         }
 
-        footer nav ul {
-            list-style: none;
-        }
-
-        footer nav ul li {
-            display: inline-block;
-            margin-right: 20px;
-        }
-
-        footer nav a {
+        .feature-box {
+            width: 20%;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            cursor: pointer;
             text-decoration: none;
-            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Social Media Icons styles (customize as needed) */
-        .social-icons {
-            margin-top: 20px;
+        .feature-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
-        .social-icons a {
-            display: inline-block;
-            margin-right: 10px;
-            color: #fff;
+        .feature-box h2 {
+            font-size: 1.2em;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        .container {
+            display:flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .course-box {
+            width: calc(33.33% - 40px ); /* 40px is the combined margin and padding of the course-box */
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 20px;
+            margin: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+            overflow: hidden; /* Added overflow property */
+            height: 300px; /* Adjust the height as needed */
+        }
+
+        .course-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-box h3 {
+            color: #333;
             font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .course-box p {
+            color: #666;
+        }
+
+        .course-box button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .course-box button:hover {
+            background-color: #555;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1em;
+            /* position: fixed; */
+            bottom: 0;
+            width: 100%;
         }
     </style>
-    <title>Coding Education</title>
+    
 </head>
+
 <body>
-    <!-- Header Section -->
+
     <header>
-        <div class="container">
-            <div class="logo">Your Logo</div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Courses</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav>
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+        <h1>Your Website</h1>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="container">
-            <h1 id="changingText"></h1>
-            <a href="#" class="cta-button">Get Started</a>
-        </div>
+    <div class="color-box"></div>
+
+    <section>
+        <a href="#" class="feature-box">
+            <h2 style="text-decoration: none;">View Our Courses</h2>
+        </a>
+
+        <a href="#" class="feature-box">
+            <h2 style="text-decoration: none;">Let's Practice </h2>
+        </a>
+
+        <a href="#" class="feature-box">
+            <h2 style="text-decoration: none;">Download Our App</h2>
+        </a>
     </section>
 
-    <!-- Features Section -->
-    <section class="features">
+    <section>
+        <h2 style="width: 100%;">Recommended Courses</h2>
         <div class="container">
-            <!-- Feature 1 -->
-            <div class="feature">
-                <h2>Interactive Lessons</h2>
-                <p>Bite-sized lessons with hands-on coding exercises.</p>
+            <div class="course-box">
+                <h3>Web Development Fundamentals</h3>
+                <p>Build a solid foundation in web development with HTML, CSS, and JavaScript.</p>
+                <button onclick="alert('Enroll in Web Development Fundamentals')">Enroll Now</button>
             </div>
-            <!-- Feature 2 (similar structure) -->
-            <!-- Feature 3 (similar structure) -->
-        </div>
-    </section>
-
-    <!-- Courses Section -->
-    <section class="courses">
-        <div class="container">
-            <!-- Course 1 -->
-            <div class="course">
-                <h3>Android Course: Jetpack Compose Mastery</h3>
-                <p>The Ultimate Android Development Course from Beginner to Advanced . Unlock the full potential of Android development with our "Jetpack Compose Mastery" course. Whether you're a beginner or an experienced developer, dive into the world of modern Android app creation. Learn the essentials, build real-world projects, and master advanced techniques using Google's Jetpack Compose toolkit. Join us and elevate your Android development skills to new heights! </p>
-                <a href="./01_Unit/Kotlin/01_kotlin.html" class="enroll-button">Start Learning</a>
+            <div class="course-box">
+                <h3>Data Science Essentials</h3>
+                <p>Learn the essential skills and tools for working with data and making informed decisions.</p>
+                <button onclick="alert('Enroll in Data Science Essentials')">Enroll Now</button>
             </div>
-            <!-- Course 2 (similar structure) -->
-            <!-- Course 3 (similar structure) -->
         </div>
     </section>
 
-    <!-- Testimonials Section -->
-    <section class="testimonials">
-        <div class="container">
-            <!-- Testimonial 1 -->
-            <div class="testimonial">
-                <p>"The courses are fantastic! I learned a lot and enjoyed every moment."</p>
-                <cite>John Doe, Student</cite>
-            </div>
-            <!-- Testimonial 2 (similar structure) -->
-            <!-- Testimonial 3 (similar structure) -->
-        </div>
-    </section>
-
-    <!-- Footer Section -->
     <footer>
-        <div class="container">
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Courses</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-            <!-- Social Media Icons -->
-            <div class="social-icons">
-                <!-- Add your social media icons here -->
-            </div>
-        </div>
+        &copy; 2024 Your Website. All rights reserved.
     </footer>
 
-    <script>
- const textArray = [
-            "Discover Easy Coding with Us!",
-            "Explore Exciting Coding Challenges!",
-            "Build Real-World Projects with Confidence!"
-        ];
-
-        let currentIndex = 0;
-        const changingText = document.getElementById("changingText");
-
-        function updateText() {
-            let charIndex = 0;
-            const currentText = textArray[currentIndex];
-
-            function typeWriter() {
-                changingText.textContent += currentText[charIndex];
-                charIndex++;
-
-                if (charIndex < currentText.length) {
-                    setTimeout(typeWriter, 100); // Adjust the speed (in milliseconds)
-                } else {
-                    setTimeout(changeText, 2000); // Change text after completion
-                }
-            }
-
-            typeWriter();
-        }
-
-        function changeText() {
-            changingText.innerHTML = '';
-            currentIndex = (currentIndex + 1) % textArray.length;
-            updateText();
-        }
-
-        updateText();
-
-
-        
-    </script>
-
 </body>
+
 </html>
