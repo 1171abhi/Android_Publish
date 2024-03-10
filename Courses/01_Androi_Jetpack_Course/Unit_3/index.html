@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetpack Compose Learning</title>
+    <link rel="shortcut icon" href="../../image/android.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        aside {
+            width: 250px;
+            height: 100vh;
+            background-color: #2c3e50;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #ecf0f1;
+            position: fixed;
+            display: none;
+        }
+
+        main {
+            flex: 1;
+            margin: 20px;
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        ol {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            background-color: #fff;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        li:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        pre {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        aside a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        aside a:hover {
+            background-color: #34495e;
+        }
+
+        .hidden-content {
+            display: none;
+        }
+
+        .visible-content {
+            display: block;
+        }
+
+        #hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            background: none;
+            color: #3498db;
+            font-size: 20px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+        }
+
+        /* Code highlighting styles */
+        .code-comment {
+            color: #6a9955; /* Green for comments */
+        }
+
+        .code-keyword {
+            color: #d73a49; /* Red for keywords */
+        }
+
+        .code-variable {
+            color: #e36209; /* Orange for variables */
+        }
+
+        .code-string {
+            color: #032f62; /* Dark blue for strings */
+        }
+
+        .code-number {
+            color: #005cc5; /* Blue for numbers */
+        }
+
+        .code-function {
+            color: #6f42c1; /* Purple for functions */
+        }
+    </style>
+</head>
+
+<body>
+    <button id="hamburger-menu" onclick="toggleAside()">&#8801;</button>
+    <aside>
+        <h2>Topics</h2>
+        <div class="back-button" onclick="toggleAside()">Back to Main Menu</div>
+        <a href="#output-functions" onclick="showContent('output-functions')">Scrollable List</a>
+    </aside>
+
+    <main>
+        <div id="output-functions" class="visible-content">
+            <h1>Scrollable List</h1>
+            <ul>
+                <li>Step 1</li>
+                <pre>
+    <span class="code-comment">com.company.example -> <b>data</b></span>
+    <span class="code-variable">data -> Datasource</span>
+
+    <span class="code-comment">com.company.example -> <b>model</b></span>
+    <span class="code-variable">model -> Affirmation</span>
+                </pre>
+
+                <li>Step 2</li>
+                <pre>
+    <span class="code-variable">Affirmation -> Kotlin Data Class</span>
+
+    <span class="code-keyword">data class</span> Affirmation(
+        <span class="code-keyword">@DrawableRes</span> <span class="code-variable">val</span> imageResourceId: <span class="code-keyword">Int</span>
+    )
+                </pre>
+                <li>Step 3</li>
+                <pre>
+    <span class="code-variable">Datasource -> <b>Kotlin Class File</b></span> 
+
+    <span class="code-keyword">class</span> Datasource {
+        <span class="code-function">fun</span> imageLocation(): <span class="code-keyword">List</span><Affirmation> {
+            <span class="code-keyword">return</span> <span class="code-keyword">listOf</span><Affirmation>(
+                Affirmation(R.drawable.imageLocation),
+                Affirmation(R.drawable.imageLocation),
+                Affirmation(R.drawable.imageLocation),
+                Affirmation(R.drawable.imageLocation),
+                Affirmation(R.drawable.imageLocation)
+            )
+        }
+    }
+                </pre>
+                <li>Step 4</li>
+                <pre>
+    <span class="code-keyword">@Composable</span>
+    <span class="code-function">fun</span> <b>Function_One</b>(affirmation: Affirmation){
+        Column {
+            Image(painter = painterResource(affirmation.imageResourceId), 
+            contentDescription ="null" )
+        }
+    }
+
+    <span class="code-keyword">@Composable</span> 
+    <span class="code-function">fun</span> <b>Function_2</b>(affirmationList: <span class="code-keyword">List</span><Affirmation>){
+        LazyColumn(modifier = Modifier){
+            items(affirmationList){affirmation ->
+                FunctionForImage(affirmation = affirmation)
+            }
+        }
+    }
+
+    <span class="code-keyword">@Composable</span>
+    <span class="code-function">fun</span> <b>Function _3</b>(){
+        Function_2(affirmationList = Datasource().imageLocation())
+    }
+                </pre>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        function showContent(contentId) {
+            // Hide all content
+            var allContent = document.querySelectorAll('.hidden-content, .visible-content');
+            allContent.forEach(function (content) {
+                content.style.display = 'none';
+            });
+
+            // Show the selected content
+            var selectedContent = document.getElementById(contentId);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+        }
+
+        function toggleAside() {
+            var aside = document.querySelector('aside');
+            aside.style.display = (aside.style.display === 'none' || aside.style.display === '') ? 'block' : 'none';
+        }
+    </script>
+</body>
+
+</html>
