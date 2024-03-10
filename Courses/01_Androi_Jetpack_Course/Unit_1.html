@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetpack Compose Learning</title>
+    <link rel="shortcut icon" href="../../image/android.svg" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        aside {
+            width: 250px;
+            height: 100vh;
+            background-color: #2c3e50;
+            padding: 20px;
+            box-sizing: border-box;
+            color: #ecf0f1;
+            position: fixed;
+            display: none;
+        }
+
+        main {
+            flex: 1;
+            margin: 20px;
+            margin-left: 250px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            color: #3498db;
+        }
+
+        ol {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+            background-color: #fff;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+
+        li:hover {
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        pre {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+
+        aside a {
+            color: #ecf0f1;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 3px;
+            transition: background-color 0.3s ease-in-out;
+            cursor: pointer;
+        }
+
+        aside a:hover {
+            background-color: #34495e;
+        }
+
+        .hidden-content {
+            display: none;
+        }
+
+        .visible-content {
+            display: block;
+        }
+
+        #hamburger-menu {
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 10px;
+            border: none;
+            background: none;
+            color: #3498db;
+            font-size: 20px;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            aside {
+                display: block;
+            }
+
+            main {
+                margin: 20px;
+            }
+
+            #hamburger-menu {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button id="hamburger-menu" onclick="toggleAside()">&#8801;</button>
+    <aside>
+        <h2>Topics</h2>
+        <div class="back-button" onclick="toggleAside()">Back to Main Menu</div>
+        <a href="#output-functions" onclick="showContent('output-functions')">Kotlin Output Functions</a>
+        <a href="#variables" onclick="showContent('variables')">Kotlin Variables</a>
+        <a href="#functions" onclick="showContent('functions')">Kotlin Functions</a>
+    </aside>
+
+    <main>
+        
+        <div id="output-functions" class="visible-content">
+            <h1>Kotlin Output Functions</h1>
+            <ul>
+                <li>Println</li>
+                <pre>fun main() {
+    println("Hello, world!")
+}</pre>
+
+                <li>Print</li>
+                <pre>fun main() {
+    print("Hello, Android!")
+}</pre>
+            </ul>
+        </div>
+
+        <div id="variables" class="hidden-content">
+            <h1>Kotlin Variables</h1>
+            <ul>
+                <li>Val</li>
+                <pre>fun main() {
+    val count: Int = 2
+    println(count)
+}</pre>
+
+                <li>Var</li>
+                <pre>fun main() {
+    var cartTotal = 0
+    cartTotal = 20
+    println("Total: $cartTotal")
+}</pre>
+            </ul>
+        </div>
+
+        <div id="functions" class="hidden-content">
+            <h1>Kotlin Functions</h1>
+            <ul>
+                <li>Define and call function</li>
+                <pre>fun main() {
+    birthdayGreeting()
+}
+
+fun birthdayGreeting() {
+    println("Happy Birthday, Rover!")
+    println("You are now 5 years old!")
+}</pre>
+
+                <li>Return</li>
+                <pre>fun birthdayGreeting(): String {
+    val nameGreeting = "Happy Birthday, Rover!"
+    val ageGreeting = "You are now 5 years old!"
+    return "$nameGreeting\n$ageGreeting"
+}</pre>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+        function showContent(contentId) {
+            // Hide all content
+            var allContent = document.querySelectorAll('.hidden-content, .visible-content');
+            allContent.forEach(function (content) {
+                content.style.display = 'none';
+            });
+
+            // Show the selected content
+            var selectedContent = document.getElementById(contentId);
+            if (selectedContent) {
+                selectedContent.style.display = 'block';
+            }
+        }
+
+        function toggleAside() {
+            var aside = document.querySelector('aside');
+            aside.style.display = (aside.style.display === 'none' || aside.style.display === '') ? 'block' : 'none';
+        }
+    </script>
+</body>
+
+</html>
