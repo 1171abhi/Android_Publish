@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetpack Compose Learning</title>
+    <link rel="shortcut icon" href="../../image/android.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script src="./JS/script.js"></script>
+</head>
+
+
+<body>
+
+    <button id="hamburger-menu" onclick="toggleAside()">&#8801;</button>
+
+    <aside>
+        <div class="back-button" onclick="toggleAside()">Back to Main Menu&nbsp;&#8801;</div>
+
+        <h2>Topics</h2>
+        <div class="back-button" onclick="toggleAside()">Back to Main Menu</div>
+        <a href="">Kotlin For Android</a>
+
+
+
+    </aside>
+    <main>
+        <h1>Kotlin Output Functions</h1>
+        <li>Print</li>
+        <pre>fun main() {
+        print("Hello, Android!")
+    }
+    </pre>
+        <li>Println</li>
+        <pre>fun main() {
+        println("Hello, world!")
+    }
+    </pre>
+
+
+
+    <h1>Variable in kotlin</h1>
+        <li>Val</li>
+
+        <pre>
+fun main() {
+        val count: Int = 10
+        println("You have $count unread messages.")
+    }
+</pre>
+
+        <li> Var</li>
+        <pre>
+fun main() {
+        var cartTotal = 0
+        println("Total: $cartTotal")
+    
+        cartTotal = 20
+        println("Total: $cartTotal")
+    }
+</pre>
+<h1>Functions in kotlin</h1>
+
+
+        <li>
+            Define and call function</li>
+        <pre>
+
+
+fun main() {
+            birthdayGreeting()
+        }
+        
+        fun birthdayGreeting() {
+            println("Happy Birthday, Rover!")
+            println("You are now 5 years old!")
+        }
+</pre>
+
+        <li>
+
+            Function return</li>
+        <pre>
+
+
+fun birthdayGreeting(): String {
+            val nameGreeting = "Happy Birthday, Rover!"
+            val ageGreeting = "You are now 5 years old!"
+            return "$nameGreeting\n$ageGreeting"
+        }
+</pre>
+
+        <li>
+            Parameter</li>
+
+        <pre>
+
+
+fun birthdayGreeting(name: String): String {
+            val nameGreeting = "Happy Birthday, $name!"
+            val ageGreeting = "You are now 5 years old!"
+            return "$nameGreeting\n$ageGreeting"
+        }
+</pre>
+
+        <li>
+            Named Argument</li>
+        <pre>
+
+
+println(birthdayGreeting(name = "Rex", age = 2))
+</pre>
+
+        <li>
+            Default Argument</li>
+        <pre>
+fun birthdayGreeting(name: String = "Rover", age: Int): String {
+            return "Happy Birthday, $name! You are now $age years old!"
+        }
+</pre>
+
+
+
+
+
+    </main>
+</body>
+
+</html>

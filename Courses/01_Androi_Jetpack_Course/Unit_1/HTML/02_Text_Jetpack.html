@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jetpack Compose Learning</title>
+    <link rel="shortcut icon" href="../../image/android.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="../CSS/style.css">
+    <script src="../JS/script.js"></script>
+</head>
+
+
+<body>
+
+    <button id="hamburger-menu" onclick="toggleAside()">&#8801;</button>
+
+    <aside>
+        <div class="back-button" onclick="toggleAside()">Back to Main Menu&nbsp;&#8801;</div>
+
+        <h2>Topics</h2>
+        <div class="back-button" onclick="toggleAside()">Back to Main Menu</div>
+        <a href="#output-functions" onclick="showContent('output-functions')">Kotlin Output Functions</a>
+        <a href="#variables" onclick="showContent('variables')">Kotlin Variables</a>
+        <a href="#functions" onclick="showContent('functions')">Kotlin Functions</a>
+
+    </aside>
+    <main>
+
+        <h1>Text in Jetpack Compose</h1>
+        <li>Text</li>
+        <pre>@Composable
+fun TextFunctionName() {
+Text(text = "Abhishek")
+}</pre>
+
+
+    </main>
+</body>
+
+</html>
